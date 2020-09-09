@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <!-- <color name="colorPrimary">#008577</color>-->
+    <color name="colorPrimary">#393939</color>
+   <!-- <color name="colorPrimaryDark">#00574B</color>-->
+    <color name="colorPrimaryDark">#2f2f2f</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="pluralsight_orange" >#F05A28</color>
+    <color name="backgroundFragment">#2B2B2B</color>
+     <color name="colorWhite">#FFFFFF</color>
+   <color name="colorblack">#000000</color>
+    <color name="colorOrange">#FFA500</color>
+    <color name="colorGold">#FFD700</color>
+</resources>

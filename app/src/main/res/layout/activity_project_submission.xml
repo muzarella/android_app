@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProjectSubmission"
+    android:orientation="vertical"
+    android:background="?attr/colorPrimary">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/colorblack"
+        >
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:src="@drawable/gad" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="40dp"
+            android:textFontWeight="@android:integer/config_longAnimTime"
+            android:textAlignment="center"
+            android:text="@string/title_form"
+            android:textColor="@color/colorGold"/>
+
+
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            >
+
+                <EditText
+                    android:id="@+id/firstName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:ems="15"
+                    android:inputType="text"
+                    android:hint="@string/first_name"
+                    android:layout_weight="1"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@color/colorWhite"/>
+
+            <EditText
+                android:id="@+id/lastName"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:ems="15"
+                android:inputType="text"
+                android:hint="@string/last_name"
+                android:layout_marginRight="10dp"
+                android:background="@color/colorWhite"
+                />
+
+
+        </LinearLayout>
+
+
+
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:ems="15"
+        android:inputType="textEmailAddress"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="40dp"
+        android:hint="@string/text_email"
+        android:background="@color/colorWhite"/>
+
+    <EditText
+        android:id="@+id/github"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:ems="15"
+        android:inputType="text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="@string/github"
+        android:background="@color/colorWhite"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="10dp"/>
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/custom_background"
+        android:padding="2dp"
+        android:text="@string/button"
+        android:textColor="@color/colorWhite" />
+
+</LinearLayout>
