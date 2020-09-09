@@ -19,7 +19,7 @@ public class Post {
     @SerializedName("id")
     public  Integer id ;
 
-    public Post(String firstName, String lastName, String email, String github) {
+    public Post(String email, String firstName, String lastName,  String github) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

@@ -144,7 +144,7 @@ public class ProjectSubmission extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-                sendPost(mGetFirstName, mGetLastName, mGetEmail, mGetGithub);
+                sendPost(mGetEmail, mGetFirstName, mGetLastName,  mGetGithub);
               //  Post post = new Post(mGetFirstName, mGetLastName,mGetEmail,mGetGithub) ;
              //   sendNetworkRequest(post);
             }
@@ -169,66 +169,54 @@ public class ProjectSubmission extends AppCompatActivity {
     private void sendPost(String getFirstName, String getLastName, String getEmail, String getGithub) {
         // using retrofit
         PostAPIinterface client = PostAPIclient.postApIinterface();
-       Call<Post> call = client.savePost(getFirstName, getLastName,getEmail,getGithub);
-        call.enqueue(new Callback<Post>() {
+       Call<Void> call = client.savePost(getEmail,getFirstName, getLastName,getGithub);
+        call.enqueue(new Callback<Void>() {
             @Override
-            public void onResponse(Call<Post> call, Response<Post> response) {
-                String s ="" ;
-                Post post  =  response.body();
-                String name = post.firstName ;
-                String lastName = post.getLastName() ;
-                String email = post.getEmail() ;
-                String github =  post.getGithub() ;
-
-                s += "name: " + name + " last name: "+ lastName + " email: " +
-                email + " github: " + github ;
-
+            public void onResponse(Call<Void> call, Response<Void> response) {
                 if (response.isSuccessful()) {
                     try{
-                        showMessage("Request Successful" + s );
+                       // showMessage("Request Successful"  );
                         showSuccessDialog();
-                        Log.d("TAG",response.code()+ "");
-
+                        Log.d("TAG",response.code() +"" );
                     }catch(Exception e){
                         e.printStackTrace();
                     }
                 } else {
-                    //showFailureDailog();
                     switch (response.code()){
                         case 200:
                             Log.d("TAG",response.code()+ "");
-                            Log.e("error 200 ", " An error occured with error 200 code" + s);
-                            showMessage("An error occured with internet with code 200");
+                            Log.e("error 200 ", " An error occured with error 200 code");
+                          //  showMessage("An error occured with internet with code 200");
                             showFailureDailog();
                             break;
 
                         case 400:
-                            Log.e("error 400 ", " An error occured with error 400 code" + s);
-                            showMessage("An error occured with code 400");
+                            Log.e("error 400 ", " An error occured with error 400 code" );
+                          //  showMessage("An error occured with code 400");
                             showFailureDailog();
                             break;
                         case 500:
                             Log.d("TAG",response.code()+ "");
-                            Log.e("error 50 ", " An error occured with error 500 code" + s );
-                            showMessage("An error occured with internet with code 500 ");
+                            Log.e("error 50 ", " An error occured with error 500 code" );
+                           // showMessage("An error occured with internet with code 500 ");
                             showFailureDailog();
                             break;
 
                             default:
                                 Log.d("TAG",response.code()+ "");
-                                Log.e("Unknown error", " An error occured with the internet"+ s);
-                                showMessage("Unknown error An error occured with internet");
+                                Log.e("Unknown error", " An error occured with the internet");
+                             //   showMessage("Unknown error An error occured with internet");
                                 showFailureDailog();
                                 break;
                     }
                 }
             }
             @Override
-            public void onFailure(Call<Post> call, Throwable t) {
-                Log.e("OnFailure Message", "Unable to submit post to API." + t );
-                showMessage("OnFailure Unable to submit post to API" + t);
+            public void onFailure(Call<Void> call, Throwable t) {
+                Log.e("OnFailure Message", "Unable to submit post to API.");
+                // showMessage("OnFailure Unable to submit post to API" );
                 showFailureDailog();
-                call.cancel();
+               // call.cancel();
             }
         });
     }
@@ -254,18 +242,9 @@ public class ProjectSubmission extends AppCompatActivity {
            call.enqueue(new Callback<Post>() {
                @Override
                public void onResponse(Call<Post> call, Response<Post> response) {
-                   String s ="" ;
-                   Post post  =  response.body();
-                   String name = post.firstName ;
-                   String lastName = post.getLastName() ;
-                   String email = post.getEmail() ;
-                   String github =  post.getGithub() ;
-
-                   s += "name: " + name + " last name: "+ lastName + " email: " +
-                           email + " github: " + github ;
 
                    Log.e("error ", " An error occured" + response.body().getId());
-                   showMessage("Network Successful"+ s + " id:" + response.body().getId());
+
                }
 
                @Override

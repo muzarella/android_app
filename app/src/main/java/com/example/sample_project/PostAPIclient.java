@@ -16,6 +16,7 @@ public class PostAPIclient {
 
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .addInterceptor(httpLoggingInterceptor)
+                .retryOnConnectionFailure(true)
                 .build() ;
 
         Retrofit retrofit = new Retrofit.Builder()
